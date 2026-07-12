@@ -1,3 +1,7 @@
+output "palo_alto_local_rulestack_rules_id" {
+  description = "Map of id values across all palo_alto_local_rulestack_rules, keyed the same as var.palo_alto_local_rulestack_rules"
+  value       = { for k, v in azurerm_palo_alto_local_rulestack_rule.palo_alto_local_rulestack_rules : k => v.id }
+}
 output "palo_alto_local_rulestack_rules_action" {
   description = "Map of action values across all palo_alto_local_rulestack_rules, keyed the same as var.palo_alto_local_rulestack_rules"
   value       = { for k, v in azurerm_palo_alto_local_rulestack_rule.palo_alto_local_rulestack_rules : k => v.action }
