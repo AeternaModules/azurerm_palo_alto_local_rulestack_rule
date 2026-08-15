@@ -16,7 +16,7 @@ output "palo_alto_local_rulestack_rules_audit_comment" {
 }
 output "palo_alto_local_rulestack_rules_category" {
   description = "Map of category values across all palo_alto_local_rulestack_rules, keyed the same as var.palo_alto_local_rulestack_rules"
-  value       = { for k, v in azurerm_palo_alto_local_rulestack_rule.palo_alto_local_rulestack_rules : k => v.category if v.category != null && length(v.category) > 0 }
+  value       = { for k, v in azurerm_palo_alto_local_rulestack_rule.palo_alto_local_rulestack_rules : k => one(v.category) if v.category != null && length(v.category) > 0 }
 }
 output "palo_alto_local_rulestack_rules_decryption_rule_type" {
   description = "Map of decryption_rule_type values across all palo_alto_local_rulestack_rules, keyed the same as var.palo_alto_local_rulestack_rules"
@@ -28,7 +28,7 @@ output "palo_alto_local_rulestack_rules_description" {
 }
 output "palo_alto_local_rulestack_rules_destination" {
   description = "Map of destination values across all palo_alto_local_rulestack_rules, keyed the same as var.palo_alto_local_rulestack_rules"
-  value       = { for k, v in azurerm_palo_alto_local_rulestack_rule.palo_alto_local_rulestack_rules : k => v.destination if v.destination != null && length(v.destination) > 0 }
+  value       = { for k, v in azurerm_palo_alto_local_rulestack_rule.palo_alto_local_rulestack_rules : k => one(v.destination) if v.destination != null && length(v.destination) > 0 }
 }
 output "palo_alto_local_rulestack_rules_enabled" {
   description = "Map of enabled values across all palo_alto_local_rulestack_rules, keyed the same as var.palo_alto_local_rulestack_rules"
@@ -72,7 +72,7 @@ output "palo_alto_local_rulestack_rules_rulestack_id" {
 }
 output "palo_alto_local_rulestack_rules_source" {
   description = "Map of source values across all palo_alto_local_rulestack_rules, keyed the same as var.palo_alto_local_rulestack_rules"
-  value       = { for k, v in azurerm_palo_alto_local_rulestack_rule.palo_alto_local_rulestack_rules : k => v.source if v.source != null && length(v.source) > 0 }
+  value       = { for k, v in azurerm_palo_alto_local_rulestack_rule.palo_alto_local_rulestack_rules : k => one(v.source) if v.source != null && length(v.source) > 0 }
 }
 output "palo_alto_local_rulestack_rules_tags" {
   description = "Map of tags values across all palo_alto_local_rulestack_rules, keyed the same as var.palo_alto_local_rulestack_rules"
